@@ -154,8 +154,7 @@ function Lunar.Speech:Initialize()
 	-- Create our watch frame for all spell events so we can react to them
 	-- and, well ... do speeches ^_^
 
-	Lunar.Speech.SpellSentry = CreateFrame("Frame", "LunarSpeechSpellSentry", UIParent, "BackdropTemplate");
-
+	Lunar.Speech.SpellSentry = CreateFrame("Frame", "LunarSpeechSpellSentry", UIParent);
 	Lunar.Speech.SpellSentry:SetWidth(1);
 	Lunar.Speech.SpellSentry:SetHeight(1);
 	Lunar.Speech.SpellSentry:EnableMouse(false);
