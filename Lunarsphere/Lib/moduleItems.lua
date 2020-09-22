@@ -220,7 +220,8 @@ Lunar.Items.updateButton = {
 --]]
 
 -- Create our tooltip sniffer
-Lunar.Items.tooltip = CreateFrame("GameTooltip", "LunarItemsTooltip", UIParent, "GameTooltipTemplate");
+Lunar.Items.tooltip = CreateFrame("GameTooltip", "LunarItemsTooltip", UIParent, "BackdropTemplate");
+
 Lunar.Items.tooltip:SetOwner(UIParent, "ANCHOR_NONE");
 Lunar.Items.tooltip:ClearAllPoints();
 Lunar.Items.tooltip:SetPoint("Center");
@@ -242,7 +243,7 @@ Lunar.Items.tooltip:Hide();
 function Lunar.Items:Initialize()
 
 	-- Create our event frame
-	Lunar.Items.eventFrame = CreateFrame("Frame", "LunarItemsEvents", UIParent);
+	Lunar.Items.eventFrame = CreateFrame("Frame", "LunarItemsEvents", UIParent, "BackdropTemplate");
 
 	-- Register the events we'll be tracking, and then set our frame's scripting
 --	Lunar.Items.eventFrame:RegisterEvent("PLAYER_LOGIN");
@@ -632,6 +633,7 @@ function Lunar.Items:BuildLookupStrings()
 	end
 	if (not LunarSphereGlobal.searchData[GetLocale()]) then
 		LunarSphereGlobal.searchData[GetLocale()] = {};
+
 	end
 
 	-- Save our standard data

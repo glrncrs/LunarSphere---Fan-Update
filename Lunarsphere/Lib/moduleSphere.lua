@@ -302,6 +302,7 @@ function Lunar.Sphere:Initialize()
 --	sphereData.main = Lunar.API:CreateFrame("Frame", "LSmain", mainAnchor, 64, 64, "", true, 0)
 
 	sphereData.main = CreateFrame("Button", "LSmain", UIParent, "SecureActionButtonTemplate");
+
 	sphereData.main:SetWidth(64);
 	sphereData.main:SetHeight(64);
 	sphereData.main:EnableMouse(true);
@@ -344,7 +345,8 @@ function Lunar.Sphere:Initialize()
 	sphereData.gaugeOuterBorder = Lunar.API:CreateFrame("Button", "LSgaugeOuterBorder", sphereData.main, 44, 44, "$addon\\art\\gaugeBorder_1", false, 0)
 	sphereData.gaugeInnerBorder = Lunar.API:CreateFrame("Button", "LSgaugeInnerBorder", sphereData.main, 30, 30, "$addon\\art\\gaugeBorder_1", false, 0)
 
-	sphereData.sphereTexture2 = CreateFrame("PlayerModel", "LSsphere2", sphereData.main);
+	sphereData.sphereTexture2 = CreateFrame("PlayerModel", "LSsphere2", sphereData.main, "BackdropTemplate");
+
 	sphereData.sphereTexture2:SetWidth(64);
 	sphereData.sphereTexture2:SetHeight(64);
 	sphereData.sphereTexture2:SetScript("OnUpdate", function (self) self:SetCamera(0) end);
