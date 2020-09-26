@@ -695,12 +695,12 @@ menuHeader:SetAttribute('_onclick',
 	-- assigning a button a new action. This method prevents the player
 	-- from automatically using an item that they place on the button when
 	-- they are assigning it)
-	Lunar.Button.updateFrame = CreateFrame("Frame", "LunarButtonUpdates", UIParent, "BackdropTemplate");
+	Lunar.Button.updateFrame = CreateFrame("Frame", "LunarButtonUpdates", UIParent, BackdropTemplateMixin and "BackdropTemplate");
 
 	-- Create the update counter frame. This will run at all times and when a set amount
 	-- of time passes, it will run through all active buttons with a "canUpdate" flag
 	-- and run their OnUpdate code.
-	Lunar.Button.updateCounterFrame = CreateFrame("Frame", "LunarButtonUpdateTimer", UIParent, "BackdropTemplate");
+	Lunar.Button.updateCounterFrame = CreateFrame("Frame", "LunarButtonUpdateTimer", UIParent, BackdropTemplateMixin and "BackdropTemplate");
 
 	Lunar.Button.updateCounterFrame.elapsed = 0;
 	Lunar.Button.updateCounterFrame.elapsedCooldown = 0;
@@ -6877,7 +6877,7 @@ function Lunar.Button:TooltipOnShow()
 	if (LunarSphereSettings.skinTooltips == true) and ((Lunar.Button.tooltipCalled == true) or (LunarSphereSettings.skinAllTooltips == true)) then
 		if not (Lunar.Button.tooltipSkinned) then
 			Lunar.Button.tooltipSkinned = true;
-			GameTooltip:SetBackdrop(LS_backdropTemplate);
+--			GameTooltip:SetBackdrop(LS_backdropTemplate);
 			GameTooltip:SetBackdropBorderColor(unpack(LunarSphereSettings.tooltipBorder));
 			GameTooltip:SetBackdropColor(unpack(LunarSphereSettings.tooltipBackground));
 		end

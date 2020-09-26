@@ -57,7 +57,7 @@ function Lunar.Object:Create(objectType, objectName, objectParent, objectTitle, 
 	-- Object type: Window
 	if (objectType == "window") then
 
-		tempObject = CreateFrame("Frame", objectName, objectParent, "LunarWindow");
+		tempObject = CreateFrame("Frame", objectName, objectParent, "LunarWindow, BackdropTemplate");
 
 		-- Set the height of the window, if specified
 		if (objectHeight) then
@@ -86,7 +86,7 @@ function Lunar.Object:Create(objectType, objectName, objectParent, objectTitle, 
 --[[	-- Object type: Check box
 	if (objectType == "checkbox") then
 
-		tempObject = CreateFrame("CheckButton", objectName, objectParent, "OptionsCheckButtonTemplate");
+		tempObject = CreateFrame("CheckButton", objectName, objectParent, "OptionsCheckButtonTemplate, BackdropTemplate");
 		tempObject:SetWidth(21);
 		tempObject:SetHeight(21);
 		_G[tempObject:GetName() .. "Text"]:SetText(objectTitle);
@@ -95,7 +95,7 @@ function Lunar.Object:Create(objectType, objectName, objectParent, objectTitle, 
 	-- Object type: Vertical Tab
 	if (objectType == "verticaltab") then
 
-		tempObject = CreateFrame("Frame", objectName, objectParent, "LunarVerticalTab");
+		tempObject = CreateFrame("Frame", objectName, objectParent, "LunarVerticalTab, BackdropTemplate");
 
 		_G[tempObject:GetName() .. "Text"]:SetText(objectTitle);
 		tempObject:SetHitRectInsets(0, 0, 4, 5);
@@ -106,7 +106,7 @@ function Lunar.Object:Create(objectType, objectName, objectParent, objectTitle, 
 	-- Object type: Container
 	if (objectType == "container") then
 
-		tempObject = CreateFrame("Frame", objectName, objectParent, "LunarContainerSolid");
+		tempObject = CreateFrame("Frame", objectName, objectParent, "LunarContainerSolid, BackdropTemplate");
 
 		-- Set the height of the container, if specified
 		if (objectHeight) then
@@ -446,7 +446,7 @@ function Lunar.Object:CreateDropdown(xLoc, yLoc, width, objectName, objectText, 
 	-- Set our local
 	local tempObject;
 
-	tempObject = CreateFrame("Frame", "LSSettings" .. objectName, objectParent, "LunarDropDown");
+	tempObject = CreateFrame("Frame", "LSSettings" .. objectName, objectParent, "LunarDropDown, BackdropTemplate");
 
 	tempObject.lunarMenu = true;
 --	tempObject.displayMode = "MENU"

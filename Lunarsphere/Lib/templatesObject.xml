@@ -100,7 +100,7 @@
 			</Layer>
 		</Layers>
 		<Frames>
-			<Frame name="$parentWindowContainer" toplevel="true" enableMouse="true">
+			<Frame name="$parentWindowContainer" toplevel="true" enableMouse="true" inherits="BackdropTemplate">
 				<Size>
 					<AbsDimension x="160" y="256"/>
 				</Size>
@@ -212,7 +212,7 @@
 		</Scripts>
 	</Frame>
 
-	<Slider name="LunarHorizontalSlider" inherits="OptionsSliderTemplate" virtual="true">
+	<Slider name="LunarHorizontalSlider" inherits="OptionsSliderTemplate, BackdropTemplate" virtual="true">
 		<Layers>
 			<Layer level="ARTWORK">
 				<FontString name="$parentValue" inherits="GameFontNormal" justifyH="LEFT" text="">
@@ -228,7 +228,7 @@
 		</Layers>
 	</Slider>
 
-	<Slider name="LunarHorizontalSliderWithTextbox" inherits="OptionsSliderTemplate" virtual="true">
+	<Slider name="LunarHorizontalSliderWithTextbox" inherits="OptionsSliderTemplate, BackdropTemplate" virtual="true">
 		<Frames>
 			<EditBox name="$parentValue" inherits="LunarEditBox">
 				<Size>
@@ -425,7 +425,7 @@
 		</Scripts>
 	</Frame>
 
-	<CheckButton name="LunarCheckButton" inherits="OptionsCheckButtonTemplate" virtual="true">
+	<CheckButton name="LunarCheckButton" inherits="OptionsCheckButtonTemplate, BackdropTemplate" virtual="true">
 	</CheckButton>
 
 	<Frame name="LunarDropDown" inherits="UIDropDownMenuTemplate, BackdropTemplate" toplevel="false" hidden="false" enableMouse="true" virtual="true">
@@ -446,5 +446,4 @@
 			</Layer>
 		</Layers>
 	</Frame>
-
 </Ui>
