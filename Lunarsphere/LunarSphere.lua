@@ -97,29 +97,6 @@ LUNARSPHERE_CHAT = "|cFF82B8E1Lunar|cFFA1CAE8Sph|cFFC7DFF1ere: |r";
 LUNAR_ICON_PREFIX = "Interface\\Icons\\"
 LUNAR_CURRENT_VERSION = 1.50;
 
--- Luunar Backdrop texture
-LS_BACKDROP = {
-	--The background texture Information
-	bginfo = "BACKDROP_DIALOG_12_12",
-
-	-- path to the background texture
-	bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
-
-	-- path to the border texture
-	edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-
-	-- true to repeat the background texture to fill the frame, false to scale it
-	tile = true,
-
-	-- size (width or height) of the square repeating background tiles (in pixels)
-	tileSize = 32,
-
-	-- thickness of edge segments and square size of edge corners (in pixels)
-	edgeSize = 10,
-
-	-- distance from the edges of the frame to those of the background texture (in pixels)
-	insets = { left = 1, right = 1, top = 1, bottom = 1 }
-}
 
 -- Define built-in texture counts
 Lunar.includedButtons = 38;
