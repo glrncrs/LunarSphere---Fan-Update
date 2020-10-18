@@ -203,7 +203,7 @@ function Lunar.API:CreateFrame(frameType, frameName, frameParent, width, height,
 	end
 
 	-- Create a frame with the details provided
-	tempFrame = CreateFrame(frameType, frameName, frameParent);
+	tempFrame = CreateFrame(frameType, frameName, frameParent, BackdropTemplateMixin and "BackdropTemplate");
 	tempFrame:SetWidth(width);
 	tempFrame:SetHeight(height);
 	tempFrame:EnableMouse(enableMouse);
