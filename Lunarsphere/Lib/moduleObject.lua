@@ -913,11 +913,11 @@ end
 function Lunar.Object:SkinDropDown(level, value, dropDownFrame, anchorName, xOffset, yOffset, menuList)
 
 	local backdrop = _G["DropDownList" .. UIDROPDOWNMENU_MENU_LEVEL .. "Backdrop"];
-	if not Lunar.Object.dropdownSkin then
-		Lunar.Object.dropdownSkin = backdrop:GetBackdrop()
-		Lunar.Object.dropdownSkinLS = _G["LSSetttingsGaugeOptionsContainer"]:GetBackdrop()
-		Lunar.Object.dropdownSkinColor = { backdrop:GetBackdropColor() };
-	end
+	-- if not Lunar.Object.dropdownSkin then
+	--	Lunar.Object.dropdownSkin = backdrop:GetBackdrop()
+	--	Lunar.Object.dropdownSkinLS = _G["LSSetttingsGaugeOptionsContainer"]:GetBackdrop()
+	--	Lunar.Object.dropdownSkinColor = { backdrop:GetBackdropColor() };
+	-- end
 
 	local menuObj;
 	if (type(UIDROPDOWNMENU_OPEN_MENU) == "table") then
@@ -930,12 +930,12 @@ function Lunar.Object:SkinDropDown(level, value, dropDownFrame, anchorName, xOff
 
 	if (menuObj) then
 		if (menuObj.lunarMenu) then
-			backdrop:SetBackdrop(Lunar.Object.dropdownSkinLS);
-			backdrop:SetBackdropColor(0.2,0.2,0.2,1.0);
+		--	backdrop:SetBackdrop(Lunar.Object.dropdownSkinLS);
+		--	backdrop:SetBackdropColor(0.2,0.2,0.2,1.0);
 			backdrop:SetFrameLevel(0);
 		else
-			backdrop:SetBackdrop(Lunar.Object.dropdownSkin);
-			backdrop:SetBackdropColor(unpack(Lunar.Object.dropdownSkinColor));
+		--	backdrop:SetBackdrop(Lunar.Object.dropdownSkin);
+		--	backdrop:SetBackdropColor(unpack(Lunar.Object.dropdownSkinColor));
 		end
 	end
 end
