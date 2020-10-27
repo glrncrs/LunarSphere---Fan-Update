@@ -51,7 +51,7 @@
 		</Scripts>
 	</EditBox>
 
-	<Frame name="LunarWindow" movable="true" toplevel="true" enableMouse="true" hidden="true" parent="UIParent" virtual="true">
+	<Frame name="LunarWindow" movable="true" toplevel="true" enableMouse="true" hidden="true" parent="UIParent" virtual="true" inherits="BackdropTemplate">
 		<Size>
 			<AbsDimension x="352" y="32"/>
 		</Size>
@@ -100,7 +100,7 @@
 			</Layer>
 		</Layers>
 		<Frames>
-			<Frame name="$parentWindowContainer" toplevel="true" enableMouse="true">
+			<Frame name="$parentWindowContainer" toplevel="true" enableMouse="true" inherits="BackdropTemplate">
 				<Size>
 					<AbsDimension x="160" y="256"/>
 				</Size>
@@ -147,8 +147,16 @@
 					</Layer>
 				</Layers>
 				<Scripts>
-					<OnLoad>
-						self:SetBackdropColor(0.2,0.2,0.2,1.0);
+					<OnLoad inherit="prepend">
+                self:SetBackdrop({
+                    bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+edgeFile= "Interface\\Tooltips\\UI-Tooltip-Border",
+                     	tile = true,
+                  	tileSize = 128,
+                  	edgeSize = 16,
+                  	insets = { left = 3, right = 3, top = 3, bottom = 3, },
+                })
+                self:SetBackdropColor(1,1,1,1.0);
 					</OnLoad>
 				</Scripts>
 			</Frame>
@@ -159,8 +167,17 @@
 			</Button>
 		</Frames>
 		<Scripts>
-			<OnLoad>
-				self:SetBackdropColor(1.0,1.0,1.0,1);
+			<OnLoad inherit="prepend">	
+self:SetBackdrop({
+                    bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+edgeFile= "Interface\\Tooltips\\UI-Tooltip-Border",
+                     	tile = true,
+                  	tileSize = 128,
+                  	edgeSize = 16,
+                  	insets = { left = 3, right = 3, top = 3, bottom = 3, },
+                })
+
+				self:SetBackdropColor(1,1,1,1.0);
 			</OnLoad>
 			<OnMouseDown>
 				if ( button == "LeftButton" ) then
@@ -173,7 +190,7 @@
 		</Scripts>
 	</Frame>
 
-	<Frame name="LunarContainer" toplevel="false" hidden="false" virtual="true">
+	<Frame name="LunarContainer" toplevel="false" hidden="false" virtual="true" inherits="BackdropTemplate">
 		<Size>
 			<AbsDimension x="128" y="128"/>
 		</Size>
@@ -187,14 +204,14 @@
 		</Backdrop>
 	</Frame>
 
-	<Frame name="LunarContainerSolid" toplevel="false" hidden="false" virtual="true">
+	<Frame name="LunarContainerSolid" toplevel="false" hidden="false" virtual="true" inherits="BackdropTemplate">
 		<Size>
 			<AbsDimension x="128" y="128"/>
 		</Size>
 		<Anchors>
 			<Anchor point="TOPLEFT"/>
 		</Anchors>
-		<Backdrop bgFile="Interface\AddOns\LunarSphere\art\Window-Background" edgeFile="Interface\Addons\LunarSphere\art\Window-Border" tile="true">
+		<Backdrop bgFile="Interface\\TutorialFrame\\TutorialFrameBackground" edgeFile="Interface\Addons\LunarSphere\art\Window-Border" tile="true">
 			<BackgroundInsets>
 				<AbsInset left="5" right="5" top="5" bottom="5"/>
 			</BackgroundInsets>
@@ -206,8 +223,16 @@
 			</EdgeSize>
 		</Backdrop>
 		<Scripts>
-			<OnLoad>
-				self:SetBackdropColor(0.2,0.2,0.2,1.0);
+			<OnLoad inherit="prepend">	
+self:SetBackdrop({
+                    bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+edgeFile= "Interface\\Tooltips\\UI-Tooltip-Border",
+                     	tile = true,
+                  	tileSize = 128,
+                  	edgeSize = 16,
+                  	insets = { left = 3, right = 3, top = 3, bottom = 3, },
+                })
+                self:SetBackdropColor(1,1,1,1.0);
 			</OnLoad>
 		</Scripts>
 	</Frame>
@@ -320,14 +345,14 @@
 		<HighlightTexture alphamode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
 	</Button>
 
-	<Frame name="LunarVerticalTab" toplevel="false" hidden="false" enableMouse="true" virtual="true">
+	<Frame name="LunarVerticalTab" toplevel="false" hidden="false" enableMouse="true" virtual="true" inherits="BackdropTemplate" mixin="BackdropTemplateMixin">
 		<Size>
 			<AbsDimension x="92" y="32"/>
 		</Size>
 		<Anchors>
 			<Anchor point="TOPLEFT"/>
 		</Anchors>
-		<Backdrop bgFile="Interface\AddOns\LunarSphere\art\Window-Background" edgeFile="Interface\Addons\LunarSphere\art\Window-Border" tile="true">
+		<Backdrop bgFile="Interface\Buttons\UI-SliderBar-Background" edgeFile="Interface\\Tooltips\\UI-Tooltip-Border" tile="true">
 			<BackgroundInsets>
 				<AbsInset left="5" right="5" top="5" bottom="5"/>
 			</BackgroundInsets>
@@ -357,8 +382,16 @@
 			</Layer>
 		</Layers>
 		<Scripts>
-			<OnLoad>
-				self:SetBackdropColor(0.9,0.9,0.9,1.0);
+			<OnLoad inherit="prepend">
+self:SetBackdrop({
+                    bgFile = "Interface/Tooltips/UI-Tooltip-Background",
+edgeFile= "Interface\\Tooltips\\UI-Tooltip-Border",
+                     	tile = true,
+                  	tileSize = 128,
+                  	edgeSize = 16,
+                  	insets = { left = 5, right = 5, top = 5, bottom = 5, },
+                })
+				self:SetBackdropColor(0,0,0,1);
 			</OnLoad>
 			<OnMouseDown>
 				-- Tab name structure: (Name Of Tab Chain)(# of tabs in chain)(# Index of tab)
@@ -391,11 +424,11 @@
 					-- gray, hide and show it (so they layer properly), and hide the container
 					-- that is also linked to it.
 					for index = maxIndex, 10, -1 do
-						getglobal(tabChainName .. index):SetBackdropColor(0.9,0.9,0.9,1.0);
+						getglobal(tabChainName .. index):SetBackdropColor(0,0,0,1);
 						getglobal(tabChainName .. index .. "Container"):Hide();
 					end
 					for index = 9, 1, -1 do
-						getglobal(tabChainName .. "0" .. index):SetBackdropColor(0.9,0.9,0.9,1.0);
+						getglobal(tabChainName .. "0" .. index):SetBackdropColor(0,0,0,1);
 						getglobal(tabChainName .. "0" .. index .. "Container"):Hide();
 					end
 				else
@@ -407,17 +440,17 @@
 					-- gray, hide and show it (so they layer properly), and hide the container
 					-- that is also linked to it.
 					for index = maxIndex, 1, -1 do
-						getglobal(tabChainName .. index):SetBackdropColor(0.9,0.9,0.9,1.0);
+						getglobal(tabChainName .. index):SetBackdropColor(0,0,0,1);
 						getglobal(tabChainName .. index .. "Container"):Hide();
 					end
 				end
 
 				-- Now, set this tab to being highlighted and show its container
-				self:SetBackdropColor(0.0,0.5,1.0,1.0);
+				self:SetBackdropColor(0.5,0.25,0.5,1.0);
 				getglobal(self:GetName() .. "Container"):Show();
 			</OnMouseDown>
 			<OnEnter>
-				getglobal(self:GetName() .. "Text"):SetTextColor(1.0,1.0,1.0,1.0);
+				getglobal(self:GetName() .. "Text"):SetTextColor(1.0,0.9,1.0,1.0);
 			</OnEnter>
 			<OnLeave>
 				getglobal(self:GetName() .. "Text"):SetTextColor(1.0,0.82,0.0,1.0);
